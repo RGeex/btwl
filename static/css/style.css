@@ -1,0 +1,97 @@
+/* -- normalize -- */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+*, *::after, *::before {
+  content: "";
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  scrollbar-gutter: stable;
+}
+
+body {
+  line-height: 1;
+  min-height: 100%;
+}
+
+a,
+label,
+button,
+input[type=button],
+input[type=submit] {
+  cursor: pointer;
+}
+
+:where(ul[class]) {
+  list-style: none;
+}
+
+img,
+video {
+  height: auto;
+  display: block;
+  max-width: 100%;
+}
+
+/* -- fonts -- */
+@font-face {
+  font-family: "Roboto";
+  src: url("/static/fonts/Roboto-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* -- media -- */
+/* -- mixins -- */
+/* -- variables -- */
+:root {
+  --transition-duration: 0.2s;
+  --font-family-base: "Roboto", sans-serif;
+  --container-width: 1240px;
+  --color-grey: #4f4f4f;
+}
+
+/* -- globals -- */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: var(--color-grey);
+  background-color: #f0f0f0;
+  font-family: var(--font-family-base);
+}
+
+:where(a[class]), :where(a[class])::after, :where(a[class])::before {
+  text-decoration: none;
+  transition: var(--transition-duration);
+}
+
+/* -- utils -- */
+.container {
+  margin-inline: auto;
+  max-width: var(--container-width);
+}
+
+/* -- main -- */
+.main {
+  cursor: pointer;
+  padding: 15px 20px;
+  border: 3px solid var(--color-grey);
+  border-radius: 10px;
+  transition: var(--transition-duration);
+}
+.main:hover {
+  color: #fff;
+  border-color: transparent;
+  background-color: var(--color-grey);
+  box-shadow: 0 0 5px var(--color-grey);
+}
+.main__title {
+  font-weight: 600;
+}
